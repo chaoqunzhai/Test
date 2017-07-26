@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--因为url里面有一个动态的值，所以这边post的时候，就需要把这个动态的值
+也传到后台，然后后台才能根据这个值，去修改数据库中对应的表-->
+
+<form method="POST" action="{% url "nnn" nnid=data.uid%}">
+    <p><input type="text" name="user" value="{{ data.hostname }}"/></p>
+    <p><input type="text" name="pwd" value="{{ data.passwd }}"/></p>
+    <p><input type="text" name="port" value="{{ data.port }}"/></p>
+    <input type="submit" value="提交"/>
+</form>
+</body>
+</html>

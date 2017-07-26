@@ -1,0 +1,9 @@
+2017-04-25 23:12:13,423 - run - CRITICAL -logger_helper:  a1
+2017-04-25 23:12:13,424 - run - CRITICAL -logger_helper:  a2
+2017-04-25 23:12:13,424 - run - CRITICAL -logger_helper:  a3
+2017-04-25 23:15:09,429 - run - CRITICAL -logger_helper:  a2
+2017-04-25 23:15:09,429 - run - CRITICAL -logger_helper:  a3
+2017-04-25 23:15:14,173 - run - CRITICAL -logger_helper:  a2
+2017-04-25 23:15:14,173 - run - CRITICAL -logger_helper:  a3
+2017-04-25 23:15:18,889 - run - CRITICAL -logger_helper:  a2
+2017-04-25 23:15:18,889 - run - CRITICAL -logger_helper:  a3

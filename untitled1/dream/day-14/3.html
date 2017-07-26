@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="http://192.168.12.90:8000/index/" method="POST" enctype="multipart/form-data">
+        <h1>欢迎来到Dream</h1>
+        <input type="file" name="upload" />
+
+        <p><label for="user">用户名:</label><input id="user"type="test" name="username" placeholder="翟超群"/></p>
+        <p><label for="pwd">密  码:</label> <input id="pwd"type="password" name="pwd" value="123456"></p>
+
+
+        <div>性别:
+            <div>男<input type="radio" name="leibie" value="1" checked="checked"></div>
+            <div>女<input type="radio" name="leibie" value="0"></div>
+        </div>
+        <div>
+            爱好:LOL<input type="checkbox" name="hob" value="2"/>
+            学习<input type="checkbox"name="hob" value="3"/>
+            逛街<input type="checkbox"name="hob" value="4"/>
+        </div>
+        <select name="city1">
+                <option value="88">北京</option>
+                <option value="89">上海</option>
+                <option value="90">广州</option>
+                <option value="91">山西</option>
+        </select>
+        <select name="city2" multiple>
+                            <option value="88">北京</option>
+                <option value="92">沙河</option>
+                <option value="93">海淀</option>
+                <option value="94" selected="selected">朝阳</option>
+        </select>
+        <textarea name="memo"></textarea>
+        <input type="submit" value="提交">
+        <input type="reset" value="重置">
+    </form>
+</body>
+</html>

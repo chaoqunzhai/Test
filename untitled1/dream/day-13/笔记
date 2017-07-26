@@ -1,0 +1,55 @@
+一.redis
+    key:五种数据类型
+二.memcache  + 分布式
+    key:‘字符串’  一种类型
+
+
+三.ORM框架 ，执行效率低，开发效率高
+
+    1.创建数据库表
+        a.根据类创建数据库表
+        b.根据数据库表创建类
+    2.操作数据库内存
+        session=连接会话
+
+默认filter的逗号直接是and 操作   or和and支持嵌套
+
+联合唯一索引，查询遵循最左前缀索引(也就是只能从最左边开始查询索引，才能查到)
+四.paramiko
+
+
+SqlAchcmy
+    1.Dialect 用来挑选用什么模块来连接DBAPI
+    2.connection poolling 数据库连接池
+    3.Engine 引擎
+
+
+1.primary_key=True 自增id
+2.unique=True 唯一约束，值不能重复,一旦重复，就会在数据库级别报错
+3.ForeignKey 外键
+
+
+
+
+
+SqlAchcmy应用:用户管理
+          1.用户表(fk)  和用户类型表做关联
+          2.用户类型表 (普通用户,超级用户)
+          3.主机表(ip,port)
+          4.关系表
+             存储用户和主机的关系
+          功能:
+               登录(用户表)中验证
+               -用户类型管理(增删改查)
+               -用户的管理(增删改查)
+               -主机表管理(增删改查)  --导入excel功能  xlwt，xlrd
+               -用户分配主机
+
+
+
+
+#hash ，可变的数组，不能被hash.
+{name,{key:value,key2:value2}}
+#只能对最外层设置超时时间。不能对内部的{key:value,key2:value2} 设置超时
+
+作业:类似于堡垒机(paramiko,ORM)

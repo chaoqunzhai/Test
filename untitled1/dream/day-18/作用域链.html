@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        xo ='root1';
+//        function  func() {
+//            var xo = 'root2';
+//            function  innter() {
+//                console.log(xo)
+//            }
+//            return innter()
+//        }
+//        result = func();
+//        result();
+//        function func() {
+//            console.log(xo);
+//            var xo = '123'
+//
+//        }
+//        func()
+        //预编译,就会把这些都会执行一次，所有66就会被最后的函数覆盖掉
+        //函数最后执行，
+        function  func(num) {
+            console.log(num);
+            num=18;
+            console.log(num);
+            function num(){
+            }
+            console.log(num);
+        }
+        func(6666);
+    </script>
+</body>
+</html>

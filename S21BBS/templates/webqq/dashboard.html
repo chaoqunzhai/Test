@@ -1,0 +1,156 @@
+{% extends "index.html" %}
+{% block extra-head-resources %}
+    <link href="/static/css/webqq_style.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block container %}
+    {% csrf_token %}
+    <div class="row" style="margin-top: 50px;height: 100%;">
+        <div class="col-lg-2 contact_list">
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation"><a href="#contacts" aria-controls="contacts" role="tab" data-toggle="tab">用户</a>
+                </li>
+                <li role="presentation"><a href="#groups" aria-controls="groups" role="tab" data-toggle="tab">组</a></li>
+
+            </ul>
+
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="contacts">
+
+                    <div class="list-group">
+                        {#                    {{ request.request.user.userproifle.friends }}#}
+                        {#                    {{ 也可以在前端直接去查库   request.user 代表当前登录的用户}}#}
+                        {% for contact in request.user.userproifle.friends.all %}
+                            {# contact_id 写这么一个自定义属性 #}
+                            <a href="#" class="list-group-item" contact_id="{{ contact.id }}"
+                                    {#                                OpenSession(this) 把自己传进去# }#}
+                               contact_name="{{ contact.name }}" onclick="OpenSession(this)">{{ contact }}
+                            </a>
+
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+                <div role="tabpanel" class="tab-pane" id="groups">
+                    {% for qqgroup in QQgroups %}
+                        <a href="#" class="list-group-item">{{ qqgroup.name }}
+                        </a>
+                    {% endfor %}
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-lg-8  chat_panel">
+
+            <div class="row chat_panel_header">
+
+                <div class="hidden" style="color: green">
+                    正在与<span contact_id="" id="chat_panel_header_text"></span>聊天
+                </div>
+            </div>
+
+            <div class="row chat_panel_body" style="color: #9c3328">
+                body
+            </div>
+
+            <div class="row chat_panel_input_box">
+
+            <textarea id="msg_input_box" class="msg_input_box">
+
+
+
+            </textarea>
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+{% endblock %}
+
+{% block bottm-js %}
+    <script>
+        {#                 委托事件，监听监控的输入，回车键是13 #}
+        $(document).ready(function () {
+            {#  #}
+            csrfmiddlewaretoken = $("input[name='csrfmiddlewaretoken']").val();
+
+
+            $("body").delegate("textarea", "keydown", function (e) {
+                if (e.which == 13) {
+                    var msg_text = $("textarea").val();
+                    if ($.trim(msg_text).length > 0) {
+                        SendMsg(msg_text);
+                    }
+                    {# 把输入的信息传到body处 #}
+                    AddSentMsgIntoBox(msg_text);
+                    $("textarea").val('');
+                }
+            });
+            {# 这里定义了一个函数，是用户进来的时候，就会从队列中取消息， #}
+            LoadNewMsgs();
+        });
+        {# collabck 是回调函数，因为后端有返回值，所以这里就会去执行 #}
+        function LoadNewMsgs() {
+            $.get("{% url 'get_msg' %}",function(callback){
+                console.log("get_msg!!! callback:",callback);
+
+                {#在js中这样函数中调用自己，这些了retrun，它就会把自己这层释放了，就进入了无限循环。也就是把之前的就释放了。不会再占用内层空间  #}
+                return LoadNewMsgs()
+        });
+        }
+        function SendMsg(msg) {
+            console.log("send!!! msg" + msg);
+            {# 一个ajks请求 #}
+             var msg_data = {
+            'csrfmiddlewaretoken':csrfmiddlewaretoken,
+            'from':"{{ request.user.userproifle.id }}",
+            'to': $("#chat_panel_header_text").attr("contact_id"),
+            'data':msg
+        };
+            {# 这里定义了一个msg_data的数据。并把它传输到后端，然后端更具这个数据，来生成一个对应的queue #}
+        $.post("{% url 'msg_api' %}", msg_data ,function(callback){
+            console.log(callback);
+            var callback = JSON.parse(callback); //json反序列化
+            console.log("msg_send_status:",callback.msg_send_status);
+            if ( callback.msg_send_status != 1){
+                alert("消息发送失败:"+ msg);
+            }
+        });
+        }
+
+        function AddSentMsgIntoBox(msg_text) {
+            var d = new Date();
+            var msg_ele = "<div>   <div>{{ request.user.userproifle.name }}  " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + "</div>";
+            {# 拼接时间 #}
+            msg_ele += "<div>" + msg_text + "</div> </div>";
+            $(".chat_panel_body").append(msg_ele);
+            {# 设置滚动 #}
+            $('.chat_panel_body').animate({
+                    scrollTop: $('.chat_panel_body')[0].scrollHeight
+                }, 500
+            );
+        }
+
+        {# 等文档加载完毕 这段代码的意思#}
+        {#    $(document).ready(function () {#}
+        {#        #}
+        {#    })#}
+        function OpenSession(ele) {
+            var contact_id = $(ele).attr("contact_id");
+            var contact_name = $(ele).attr("contact_name");
+            $(ele).addClass("active");
+            $(ele).siblings().removeClass("active");
+            $("#chat_panel_header_text").text(contact_name);
+            $("#chat_panel_header_text").parent().removeClass("hidden");
+        }
+
+    </script>
+
+{% endblock %}

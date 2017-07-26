@@ -1,0 +1,16 @@
+2016-11-14 21:20:25,097 - Test - WARNING - warn message
+2016-11-14 21:20:32,769 - Test - WARNING - warn message
+2016-11-14 21:20:32,770 - Test - ERROR - error message
+2016-11-14 21:20:32,770 - Test - CRITICAL - critical message
+2016-11-14 21:27:16,185 - Test - WARNING - warn message
+2016-11-14 21:27:16,185 - Test - ERROR - error message
+2016-11-14 21:27:16,185 - Test - CRITICAL - critical message
+2016-11-14 21:27:41,468 - nginx - WARNING - warn message
+2016-11-14 21:27:41,469 - nginx - ERROR - error message
+2016-11-14 21:27:41,469 - nginx - CRITICAL - critical message
+2016-11-14 21:27:44,716 - nginx - WARNING - warn message
+2016-11-14 21:27:44,716 - nginx - ERROR - error message
+2016-11-14 21:27:44,716 - nginx - CRITICAL - critical message
+2016-11-14 21:28:46,770 - nginx -  loging 模块.py WARNING - warn message
+2016-11-14 21:28:46,776 - nginx -  loging 模块.py ERROR - error message
+2016-11-14 21:28:46,776 - nginx -  loging 模块.py CRITICAL - critical message

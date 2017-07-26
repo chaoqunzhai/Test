@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://v3.bootcss.com/favicon.ico">
+
+    <title>BBS</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <link href="/static/css/starter-template.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="/static/js/ie-emulation-modes-warning.js"></script>
+    <link href="http://libs.baidu.com/fontawesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+
+
+    {% block extra-head-resources %}{% endblock %}
+
+  </head>
+
+  <body  style="background-color: #B5B3A7;">
+
+{% block body %}{% endblock %}
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $(".navbar-nav a[href='{{ request.path }}']").parent().addClass("active");
+        });//end doc ready
+
+    </script>
+    {% block bottm-js %}{% endblock %}
+
+</body></html>

@@ -1,0 +1,49 @@
+yield a #返回a, 同时挂起当前这个函数， a返回给了通过__next__()调用当前函数的人
+这代表通过yield就实现了函数的中断 ， 并且保存了函数的中间执行状态
+
+
+装饰器
+   完全符合 开放-封闭原则，
+   不改变原有功能代码，不改变原有调用方式
+   实现扩展新的功能
+
+  __file__相对路径
+  os.path.abspath(__file__)把相对路径变为绝对路径
+
+py2
+    目录里没有__init__,那就只是一个目录，目录是不可以被导入的
+    有__init__,那这个目录就变成了   “包” =package
+    not matter py2 or py3 , only the package can be imported ....
+    however , in py3 , the directory will also be treated as package ,
+    __init__.py in py3 is not mandatory...
+
+
+import sys
+import os
+import multiprocessing as mp
+
+
+把一个内存对象转成字符串形式，就叫序列化
+把一个字符串转成对应的内存对象，就叫  反序列化
+序列化的作用就是 持久话内存数据对象
+
+json.dumps 序列化
+json.dump
+json.loads 反序列化
+json.load
+
+
+模拟实现一个ATM + 购物商城程序
+
+支持多用户 ，每个用户 账户信息独立
+
+额度 15000或自定义
+实现购物商城，买东西加入 购物车，最后结账时调用信用卡接口结账
+可以提现，手续费5%，最多只能取信用额度的50%
+支持账户间转账
+记录每月日常消费流水
+date    shop_name  transaction_type  amount    intrest(手续费)
+提供还款接口
+ATM记录操作日志
+提供管理接口，包括添加账户、用户额度，冻结账户等。。。
+用户认证用装饰器

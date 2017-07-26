@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style></style>
+</head>
+<body>
+    <form action="http://www.baidu.com">
+        <input type="text" id="user_1" name="user" />
+        <input type="submit" id="sub" value="提交">
+    </form>
+    <form action="http://www.baidu.com">
+        <input type="text" id="user_2" name="user" />
+        <input type="submit" value="提交" onclick="return func()">
+    </form>
+    <script>
+        document.getElementById('sub').onclick = function () {
+            var v = document.getElementById('user_1').value;
+            if (v.length >0){
+
+            }else {
+                alert('请输入内容1');
+                return false
+            }
+        };
+        /*
+        阻止默认事件，form默认会跳转到百度，但是这里函数写的 如果返回的是false，就不会跳转
+         */
+        function func() {
+            var v =document.getElementById('user_2').value;
+            if (v.length>0) {
+                return true
+            }else {
+                alert('请输入内容2');
+                return false
+            }
+        }
+    </script>
+</body>
+</html>

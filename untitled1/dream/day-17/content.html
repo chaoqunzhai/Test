@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .hide{
+            display: none;
+        }
+        .shade{
+            position: fixed;
+            top:0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: black;
+            opacity: 0.6;
+            z-index: 100;
+        }
+        .model{
+            position: fixed;
+            top:50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            z-index: 101;
+            background-color: white;
+            margin-left: -200px;
+            margin-top: -200px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="shade hide"></div>
+    <div class="model hide">
+        <p>机房：<input id='addr' type="text"/></p>
+        <p>IP：<input id="ip" type="text"/></p>
+        <p>管理者：<input id="user" type="text"/></p>
+        <p>上线时间：<input id="onlinetime" type="text"/></p>
+        <p>用途：<input id="yongtu" type="text"/></p>
+        <a><input type="submit" id="queding" value="确定"/></a>
+        <a><input type="submit" id="quxiao" value="取消"/></a>
+
+    </div>
+    <div id="conent">
+        <input type="text" id="username" placeholder="请输入查询内容"/>
+        <input type="button" value="全选" onclick = "selectAll();"/>
+        <input type="button" value="取消" onclick = "cancelAll();"/>
+        <input type="button" value="反选" onclick = "ReverseAll();"/>
+        <input type="button" value="添加" onclick="add_host();"/>
+        <table width="100%" border="0" cellpadding="2" cellspacing="1" bgcolor="#CCCCCC">
+            <tbody id="info">
+            <tr bgcolor="#F2F2F2" height="25">
+                <td width="5%" align="center"><strong>操作</strong></td>
+                <td width="10%" align="center"><strong>机房</strong></td>
+                <td width="15%" align="center"><strong>IP</strong></td>
+                <td width="10%" align="center"><strong>管理者</strong></td>
+                <td width="20%" align="center"><strong>上线时间</strong></td>
+                <td width="10%" align="center"><strong>用途</strong></td>
+                <td colspan="2" width="40%" align="center"><strong>功能</strong></td>
+
+            </tr>
+            <tr bgcolor="#FFFFFF" height="25">
+                <td><input type="checkbox"  /></td>
+                <td target="#addr" align="center">北京</td>
+                <td target="#ip" align="center">202.202.202.202</td>
+                <td target="#user" align="center">张三</td>
+                <td target="#onlinetime" align="center">2017-02-24</td>
+                <td target="#yongtu" align="center">测试</td>
+                <td class="edit" align="center">编辑</td>
+                <td class="del" align="center">删除</td>
+            </tr>
+            <tr bgcolor="#FFFFFF" height="25">
+                <td><input type="checkbox" /></td>
+                <td target="#addr" align="center">北京</td>
+                <td target="#ip" align="center">202.202.202.202</td>
+                <td target="#user" align="center">张三</td>
+                <td target="#onlinetime" align="center">2017-02-24</td>
+                <td target="#yongtu" align="center">测试</td>
+                <td class="edit" align="center">编辑</td>
+                <td class="del" align="center">删除</td>
+            </tr>
+            <tr bgcolor="#FFFFFF" height="25">
+                <td><input type="checkbox" /></td>
+                <td target="#addr" align="center">北京</td>
+                <td target="#ip" align="center">202.202.202.202</td>
+                <td target="#user" align="center">张三</td>
+                <td target="#onlinetime" align="center">2017-02-24</td>
+                <td target="#yongtu" align="center">测试</td>
+                <td class="edit" align="center">编辑</td>
+                <td class="del" align="center">删除</td>
+            </tr>
+            <tr bgcolor="#FFFFFF" height="25">
+                <td><input type="checkbox" /></td>
+                <td target="#addr" align="center">北京</td>
+                <td target="#ip" align="center">202.202.202.202</td>
+                <td target="#user" align="center">张三</td>
+                <td target="#onlinetime" align="center">2017-02-24</td>
+                <td target="#yongtu" align="center">测试</td>
+                <td class="edit" align="center">编辑</td>
+                <td class="del" align="center">删除</td>
+            </tr>
+            <tr bgcolor="#FFFFFF" height="25">
+                <td><input type="checkbox" /></td>
+                <td target="#addr" align="center">北京</td>
+                <td target="#ip" align="center">202.202.202.202</td>
+                <td target="#user" align="center">张三</td>
+                <td target="#onlinetime" align="center">2017-02-24</td>
+                <td target="#yongtu" align="center">测试</td>
+                <td class="edit" align="center">编辑</td>
+                <td class="del" align="center">删除</td>
+            </tr>
+            <tr bgcolor="#FFFFFF" height="25">
+                <td><input type="checkbox" /></td>
+                <td target="#addr" align="center">北京</td>
+                <td target="#ip" align="center">202.202.202.202</td>
+                <td target="#user" align="center">张三</td>
+                <td target="#onlinetime" align="center">2017-02-24</td>
+                <td target="#yongtu" align="center">测试</td>
+                <td class="edit" align="center">编辑</td>
+                <td class="del" align="center">删除</td>
+            </tr>
+            <tr bgcolor="#FFFFFF" height="25">
+                <td><input type="checkbox" /></td>
+                <td target="#addr" align="center">北京</td>
+                <td target="#ip" align="center">202.202.202.202</td>
+                <td target="#user" align="center">张三</td>
+                <td target="#onlinetime" align="center">2017-02-24</td>
+                <td target="#yongtu" align="center">测试</td>
+                <td class="edit" align="center">编辑</td>
+                <td class="del" align="center">删除</td>
+            </tr>
+            <tr bgcolor="#FFFFFF" height="25">
+                <td><input type="checkbox" /></td>
+                <td target="#addr" align="center">北京</td>
+                <td target="#ip" align="center">202.202.202.202</td>
+                <td target="#user" align="center">张三</td>
+                <td target="#onlinetime" align="center">2017-02-24</td>
+                <td target="#yongtu" align="center">测试</td>
+                <td class="edit" align="center">编辑</td>
+                <td class="del" align="center">删除</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        function selectAll() {
+            $('#info').children().find(':checkbox').prop('checked',true);
+
+        }
+        function cancelAll() {
+            $('#info').children().find(':checkbox').prop('checked',false);
+        }
+        function ReverseAll() {
+            $('#info').children().find(':checkbox').each(function () {
+
+                if($(this).prop('checked')){
+                    $(this).prop('checked',false);
+
+                }else {
+                    $(this).prop('checked',true);
+                }
+
+            })
+
+        }
+
+        $('.edit').click(edit_host);
+        $('.del').click(del_host);
+
+
+
+        function del_host(){
+            $(this).parent().remove();
+
+        };
+        function edit_host(){
+            $('.shade').show();
+            $('.model').show();
+            quanju = $(this).prevAll();
+            var  tb_list = $(this).prevAll();
+            tb_list.each(function () {
+                var td = $(this);
+                var td_text = td.text();
+                var v = td.attr('target');
+                $(v).val(td_text)
+            });
+
+        }
+
+        $('#quxiao').click(function () {
+            $('.model').hide();
+            $('.shade').hide();
+        });
+        $('#queding').click(function () {
+            var ip = $('#ip').val();
+            var addr = $('#addr').val();
+            var user = $('#user').val();
+            var onlinetime = $('#onlinetime').val();
+            var yongtu = $('#yongtu').val();
+
+            quanju.eq(4).text(addr);
+            quanju.eq(3).text(ip);
+            quanju.eq(2).text(user);
+            quanju.eq(1).text(onlinetime);
+            quanju.eq(0).text(yongtu);
+            $('.shade').hide();
+            $('.model').hide();
+
+        });
+        function add_host() {
+            
+            var max_line_num = $('#info >tr').length
+            $('#info').append(
+                '<tr bgcolor="#FFFFFF" height="25">'+
+                '<td><input type="checkbox" /></td>' +
+                '<td target="#addr" align="center">北京</td>' +
+                '<td target="#ip" align="center">202.202.202.202</td>'+
+                '<td target="#user" align="center">张三</td>'+
+                '<td target="#onlinetime" align="center">2017-02-24</td>'+
+                '<td target="#yongtu" align="center">测试</td>'+
+                '<td class="edit"  align="center">编辑</td>'+
+                '<td class="del" align="center">删除</td></tr>'
+                );
+            $('table tr:last td:eq(6)').click(edit_host);
+            $('table tr:last td:eq(7)').click(del_host);
+        };
+
+
+
+
+
+            // "<tr id='line" + max_line_num + "'>" +
+            //     "<td class='td_Num'>" + max_line_num + "</td>" +
+            //     "<td class='td_Item'><input type='text' class='stepName' value='步骤名称" + max_line_num + "'></input></td>" +
+            //     "<td class='td_Item'><input type='text' class='stepDescription' value='步骤描述" + max_line_num + "'></td>" +
+            //     "<td class='td_Oper'>" +
+            //         "<span onclick='up_exchange_line(this);'>上移</span> " +
+            //         "<span onclick='down_exchange_line(this);'>下移</span> " +
+            //         "<span onclick='remove_line(this);'>删除</span> " +
+            //     "</td>" +
+            // "</tr>");
+        
+
+
+
+//        function selectAll(){
+//
+//            //1.得到tbody
+//            var myTodby = document.getElementById('info');
+//
+//            //2.找下面的孩子
+//            var myTrs = myTodby.children;
+//
+//            for(var i=0; i<myTrs.length;i++){
+//                var myInput = myTrs[i].children[0].children[0];
+//                myInput.checked = true;
+//            }
+//        }
+//
+//        function cancelAll(){
+//             //1.得到tbody
+//            var myTodby = document.getElementById('info');
+//
+//            //2.找下面的孩子
+//            var myTrs = myTodby.children;
+//
+//            for(var i=0; i<myTrs.length;i++){
+//                var myInput = myTrs[i].children[0].children[0];
+//                myInput.checked = false;
+//            }
+//        }
+//        function ReverseAll(){
+//             //1.得到tbody
+//            var myTodby = document.getElementById('info');
+//
+//            //2.找下面的孩子
+//            var myTrs = myTodby.children;
+//
+//            for(var i=0; i<myTrs.length;i++){
+//                var myInput = myTrs[i].children[0].children[0];
+////                myInput.checked = false;
+//                if(myInput.checked){
+//                     myInput.checked = false;
+//                }else{
+//                     myInput.checked = true;
+//                }
+//            }
+//        }
+    </script>
+</body>
+</html>

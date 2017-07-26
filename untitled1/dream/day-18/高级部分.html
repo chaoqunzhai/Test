@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //谁调用函数，this就是谁
+        //函数()执行的时候默认是windows.函数
+        //变量查找顺序，作用域链，也就是在内部找，如果没有就去上级找，直到找到为止，如果没有就nodifetd
+        var dict = {
+            Name :'root2',
+            Age:18,
+            Func:function () {
+                //this等于dict
+                console.log(this.Name);
+                //that等于this
+                var chat = this;
+                function inner() {
+                    console.log(chat.Name);
+                }
+                inner();       //inner() 等于windows.inner()
+            }
+        };
+        dict.Func();
+    </script>
+</body>
+</html>

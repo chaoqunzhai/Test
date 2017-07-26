@@ -1,0 +1,20 @@
+
+
+cd C:/Users/Administrator/PycharmProjects/untitled1/dream/day9/FTP_shack/MadFtpClient/
+
+cd C:/Users/Administrator/PycharmProjects/untitled1/dream/day9/FTP_shack/MadFtpServer/bin
+服务端操作:python ftp_server_run.py start
+客户端操作:python ftp_client.py -s localhost -P9999    <按q退出>
+
+用户名:cq
+密码:123
+
+测试得知: 在get和put的时候。文件内容必须有 不然会出错
+
+
+
+亲测实现功能:	a、put 功能  	命令:put '文件' 附加 --md5 校验 进度条
+		b、get 功能  	命令:put '文件' 附加 --md5 校验 进度条
+	 	c、ls  功能  	命令:ls type 查看用户目录下文件
+		d、pwd 功能	命令:pwd type 查看用户的家目录
+		e、cd  功能     命令:现在只是限制了home目录。暂不能随意切换

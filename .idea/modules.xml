@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://F:/项目/cmdb/AutoCmdb/.idea/AutoCmdb.iml" filepath="F:/项目/cmdb/AutoCmdb/.idea/AutoCmdb.iml" />
+      <module fileurl="file://$USER_HOME$/CMDB/.idea/CMDB.iml" filepath="$USER_HOME$/CMDB/.idea/CMDB.iml" />
+      <module fileurl="file://F:/项目/EdmureBlog/.idea/EdmureBlog.iml" filepath="F:/项目/EdmureBlog/.idea/EdmureBlog.iml" />
+      <module fileurl="file://F:/Python之路/老男孩教育-Python自动化开发-16期-VIP视频-360解压/L025-老男孩教育-Python16期VIP视频-pbb/LuffyCRM/.idea/LuffyCRM.iml" filepath="F:/Python之路/老男孩教育-Python自动化开发-16期-VIP视频-360解压/L025-老男孩教育-Python16期VIP视频-pbb/LuffyCRM/.idea/LuffyCRM.iml" />
+      <module fileurl="file://F:/项目/MadKing-master(alex_CMDB)/.idea/MadKing.iml" filepath="F:/项目/MadKing-master(alex_CMDB)/.idea/MadKing.iml" />
+      <module fileurl="file://F:/Python之路/14期/L030-老男孩教育-Python14期VIP视频-10节-pbb/L030-老男孩教育-Python14期VIP视频-10节-pbb/L030-老男孩教育-Python14期VIP视频-10节-pbb/PerfectCRM/.idea/PerfectCRM.iml" filepath="F:/Python之路/14期/L030-老男孩教育-Python14期VIP视频-10节-pbb/L030-老男孩教育-Python14期VIP视频-10节-pbb/L030-老男孩教育-Python14期VIP视频-10节-pbb/PerfectCRM/.idea/PerfectCRM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PycharmProjects.iml" filepath="$PROJECT_DIR$/.idea/PycharmProjects.iml" />
+      <module fileurl="file://$USER_HOME$/RestApi/.idea/RestApi.iml" filepath="$USER_HOME$/RestApi/.idea/RestApi.iml" />
+      <module fileurl="file://$USER_HOME$/Rest_Framework/.idea/Rest_Framework.iml" filepath="$USER_HOME$/Rest_Framework/.idea/Rest_Framework.iml" />
+      <module fileurl="file://F:/项目/s16day24/s16MadKing/.idea/s16MadKing.iml" filepath="F:/项目/s16day24/s16MadKing/.idea/s16MadKing.iml" />
+    </modules>
+  </component>
+</project>

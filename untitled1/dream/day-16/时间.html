@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="clock"></div>
+    <script>
+        function test(){
+            var mydate = new Date();
+
+            var myyear = mydate.getFullYear();
+            var mymonth = mydate.getMonth() + 1;
+            var myday = mydate.getDate();
+            var myhosr = mydate.getHours();
+            var myminue = mydate.getMinutes();
+            var mysec = mydate.getSeconds();
+
+            var res =myyear + '-' + mymonth + '-' + myday + '-' + myhosr + ':' + myhosr +':'+ myminue + ':' +mysec;
+
+            var mycolk = document.getElementById('clock');
+
+            mycolk.innerText = res;
+        }
+        setInterval('test()',100)
+    </script>
+</body>
+</html>

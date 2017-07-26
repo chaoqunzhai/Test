@@ -1,0 +1,13 @@
+jQuery
+    事件绑定
+        DOM事件绑定
+            一在标签上绑定
+            通过找到标签再绑定
+               fir （var i=0;i<title.length;i++){
+               title[i].onclick =function(){
+               }
+               }
+        jquery绑定,
+            1.
+            2.
+            加扩展

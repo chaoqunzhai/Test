@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //函数FOO（'root1'）
+        //对象 obj = new Foo（'root2'）
+        function Foo(name) {
+            this.Name = name;  //this就是Foo   ，this就是跟py的self一样
+            console.log(this);
+        }
+        var v = new Foo('root1'); //new 是jquery里面创建对象的方法。
+        console.log(v.Name);
+    </script>
+</body>
+</html>

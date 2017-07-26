@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div class='c1'>
+                    <div>
+                        <div class='title'>菜单一</div>
+                        <div class='content'>内容 一</div>
+                    </div>
+                    <div>
+                        <div class='title'>菜单二</div>
+                        <div class='content'>内容 一</div>
+                    </div>
+                    <div>
+                        <div class='title'>菜单三</div>
+                        <div class='content'>内容 一</div>
+                    </div>
+                    <div>
+                        <div class='title'>菜单四</div>
+                        <div class='content'>内容 一</div>
+                    </div>
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+//        $('.title').bind('click',function () {
+//            var v =$(this).text();
+//            console.log(v);
+//        });
+        $('.title').click(function () {
+            var v =$(this).text();
+            console.log(v);
+        });
+//        $('.c1').on('click'，'.title',function () {
+//            var q = $(this).text();
+//            console.log(q);
+//        });
+    </script>
+</body>
+</html>

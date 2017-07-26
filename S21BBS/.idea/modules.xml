@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../.idea/PycharmProjects.iml" filepath="$PROJECT_DIR$/../.idea/PycharmProjects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/S21BBS.iml" filepath="$PROJECT_DIR$/.idea/S21BBS.iml" />
+      <module fileurl="file://F:/Python之路/15期/day27/s15day26 - 自定义列名/.idea/s15day26.iml" filepath="F:/Python之路/15期/day27/s15day26 - 自定义列名/.idea/s15day26.iml" />
+    </modules>
+  </component>
+</project>

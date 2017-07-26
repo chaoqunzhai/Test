@@ -1,0 +1,38 @@
+RPC须知:
+
+(服务端在Centos环境中运行)
+服务端启动:python3 server.py -c cq
+		##-c 指定队列名称，服务段与客户端应该相同，才可接收到消息
+
+
+(客户端在windows环境中运行)
+客户端启动:python3 client.py -s 192.168.1.10 -c cq
+		-[1]	-s：
+			指定rabbitmq服务器地址，可以同时写多个
+
+		-[2]	-c:
+			指定队列名称，服务段与客户端应该相同，才可接收到消息
+
+		-[3]
+			输入普通一个命令，只会输出这个命令所对应的信息，task_id:等
+            执行效果:
+                    >>>pwd
+                    [用户输入str:pwd] [用户输入值:pwd],[TaskID:143]
+                    >>>linux command successful for Server
+		-[4],
+			执行check_task task_id   就可以获得对应命令的信息 ，设置task_id为int,len(用户输入) == 2.
+            执行效果:
+                    >>>check_task 143
+                    [用户输入str:check_task] [用户输入值:check_task 143],[TaskID:412]
+                    >>>结果******* /root/PycharmProjects/untitled/server
+                    linux command successful for Server
+
+		-[5]，
+			执行check_all  就可以查看到所有的[taskid:Queue]信息，只有check_task获取到命令结果后。check_all才可以看到所有的值，
+			执行效果:
+                    >>>check_all
+                    [用户输入str:check_all] [用户输入值:check_all],[TaskID:225]
+                    [check all]----217 ['amq.gen-ASh0Pkv61L5s2wyJvZcfNw']
+                    [check all]----462 ['amq.gen-ASh0Pkv61L5s2wyJvZcfNw']
+        -[6],
+            按q即推出

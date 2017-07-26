@@ -1,0 +1,47 @@
+django
+    -路由系统 urls.py
+    -视图函数 views.py
+        -模板引擎渲染
+                    --HttpReponse(字符串)
+                    --render(request，‘/path/a.html’，{‘name’:'root‘})
+        -数据库操作  models.py
+
+一:示例--服务器的，基本增删改查
+    1.数据库设计(如果用django的app去创建数据库表，需要在setting配置里面INSTALLED_APPS里，添加app01的)
+        id    hosname     ip      port        status
+    2.功能的实现
+        预备阶段:
+            创建projetct
+            创建app
+            配置模板路径
+            配置静态文件
+        1.
+        ps.setting注册app名字
+    注意:如果是连接mysql
+            -手动创建数据库
+            -setting.py中配置
+                'ENGINE': 'django.db.backends.mysql',
+                'NAME': 'app',
+                'USER':'root',
+                'PASSWORD':'python',
+                'HOST':'192.168.12.81',
+                'PORT':'3306',
+            -django连接mysql默认是用的：MysqDB
+                因为python3中只有pymysql去连接,所以需要配置
+                -在配置目录的init.py中
+                    import pymsql
+                    pymysql.install_as_MySQLdb()
+
+HttpRespon :返回一个字符串
+rendir返回一个页面
+rendirect 跳转页面
+filter获取的一定是对象列表
+别名name='nnn'
+$ 开头和结束
+?nid=1  这就是以get方式请求
+
+#如果是?id=1 这样不利于SEO
+session依赖于cookice，
+action="/update_user/"  就是把这个表单提交到这个页面上。在urls.py里面定义了路由地址update_user/，而且这个路由地址update_user/又被定义到了views里的函数。也就是传到视图函数中
+                        所以这样写,:就可以把这个表单数据传输给这个函数。这个函数来处理用户的数据
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" value="请输入关键字" onfocus="fucFocus(this);" onblur="fucBlur(this)" />
+    <div id="i1">test
+        <span>111111</span>
+        <input type="text" value="22222"/>
+    </div>
+    <script>
+        /*
+        innerHTML 是获取所以的标签内容
+        innerText 是获取标签内容
+        value 是获取input标签的
+         */
+        function  fucFocus(thi) {
+           var v=thi.value;
+           if(v =='请输入关键字'){
+               thi.value= '';
+            }
+        }
+        function fucBlur(thi) {
+            var v =thi .value;
+            if(v.length==0){
+                thi.value='请输入关键字';
+            }
+        }
+    </script>
+</body>
+</html>

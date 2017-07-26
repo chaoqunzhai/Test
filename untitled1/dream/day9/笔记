@@ -1,0 +1,53 @@
+
+@staticmethod  不能访问类的任何属性
+@classmethod  类方法，只能访问公有属性
+@property   属性方法  ，把一个方法变成一个静态属性
+
+def sayhai(k):
+@sayhai.setter
+def syahai()
+
+__call__（） ： 实例+ ()  会触发call method
+__dict__（）： 打印实例中所有属性
+
+__getitem__   :  以字典的形式操作实例
+
+__new__  : 先于 __init__执行，可以在new中自定义类的实例化过程
+
+__sr__   返回实例的字符串形式
+
+__metaclass__ 元类，
+
+type()   可以动态创建一个类
+
+try ... exept
+
+try
+
+except  (IndexError,ValueError) as e：
+    print（e）
+else：      没有错误就执行
+
+finally      无论如何都要执行
+
+raise  自己指定触发异常
+
+assert  断言
+
+__improt__（'day8.testmode'）  动态的导入
+
+hasattr
+getattr
+setattr
+delattr
+
+socket
+s= socket.socket(socket.AF_INET,socket.SOCK_STRAM)
+s.bind(address,prot)
+s.listen(5)
+conn,clientaddr =s.accept   #返回2个值    conn
+
+
+反射调用是不能调用私有方法的  应该 _get   一个下划线
+
+黏包: （缓冲区满了，返回的包就粘一起了。）

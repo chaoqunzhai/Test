@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div style="background-color:yellow ">
+    <marquee behavior="red" direction="right" style="font-size: 25px">来宾两位！！！</marquee>
+    </div>
+    <div id="wei">
+        欢迎光临
+    </div>
+    <script>
+        function test() {
+            var myswel = document.getElementById('wei');
+            var conter = myswel.innerText;
+
+            var f_conter =conter.charAt(0);
+            var l_conter = conter.substring(1,conter.length);
+
+            var new_conter = l_conter + f_conter;
+
+            myswel.innerText = new_conter;
+//            console.log(new_conter)
+        }
+        setInterval("test()",500)
+    </script>
+</body>
+
+</html>

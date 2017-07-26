@@ -1,0 +1,216 @@
+Day15,前端
+    - HTML
+    - CSS
+    - JavaScript(浏览器)  
+        document.getElementById('i1')
+        
+        var xhr =  new XMLHttpRequest()
+        xhr.open('get','https://www.zhihu.com/login/email')
+        xhr.send()
+        
+    - jQuery库            
+        $('#id')
+        
+        $.ajax({
+            url: https://www.zhihu.com/login/email,
+            type: 'get'
+        })
+
+注：jQuery有无必要学js
+
+一、回顾：
+        HTML
+        
+            客户端浏览器：
+                
+                
+            服务器Sokect：
+                程序员：
+                    接受url
+                    open()
+        HTML标签：
+            
+            - table,tr,td,th
+            - br
+            - <input type='text' /> type='file' password checkbox radio  button submit
+            - p
+            - h系列
+            - span
+            - label
+            - a
+            - div
+            - form
+            - img
+            - textarea
+            - select
+            - ul,li   ol  dl
+            - body
+            - html
+            - input
+            
+            ====>
+            套路：
+                绿叶：div,span,url,table
+                红花：
+                       
+                       <form action='要提交的url地址' method='GET或POST' enctype='multipart/form-data'>
+                            
+                            <div>
+                                <input type='text' name='user' value='默认值' />
+                            </div>
+                            
+                            <div>
+                                <input type='password' name='user' value='默认值' />
+                            </div>
+                            
+                            <input type='email' name='user' value='默认值' />
+                            
+                            <input type='radio' name='n' value='1' checked='checked' />
+                            <input type='radio' name='n' value='2' />
+                            
+                            
+                            <input type='checkbox' name='hobby' value='1' />
+                            <input type='checkbox' name='hobby' value='2' />
+                            <input type='checkbox' name='hobby' value='3' />
+                            
+                            <input type='file' name='fafafa' />
+                            
+                            <select name='city'>
+                                <option value='bj'>北京</option>
+                                <option value='sh'>上海</option>
+                            </select>
+                            
+                            <textarea name='ta'>默认值位置</textarea>
+                            
+                            <input type='button' />
+                            <input type='reset' />
+                            <input type='submit' />
+                       </form>
+                        
+                        Form表单提交：
+                            - GET    提交的数据放置的URL中：https://www.sogou.com/web?query=haitao&v=123&v=456
+                            - POST   提交的数据放置在请求体中
+                            
+                           
+
+ 二、css
+    
+    1.css的概念以及css的初体验
+        --CSS（cascading style sheet，层叠样式表)是一种制作网页的新技术
+        --css的语法结构：
+            color:red;font-size: 20px;
+    
+    2.css的编写方式
+    
+        2.1 行内样式
+             <div style="color:red;font-size: 20px;">css的初体验</div>
+             
+        2.2 内部样式
+            -- div{
+                color:red;
+                font-size: 20px;
+            }
+            <div>css的初体验2</div>
+            
+            各种选择器
+                --标签选择器：
+                    div{
+                        color:red;
+                        font-size: 20px;
+                    }
+                     <div>css的初体验2</div>
+                --id选择器：
+                    #two{
+                        color: yellow;
+                    }
+                    <div id="two">css的初体验2</div>
+                    id不要重复  只能唯一
+                --类选择器
+                    .three{
+                        color:blue;
+                    }
+                     <div class="three">css的初体验2</div>
+                     <span class="three">span标签</span>
+               --包含选择器
+                     .four span{
+                            color:green;
+                      }
+                      <div class="four">
+                            <span>css测试dsad</span>
+                       </div>
+               --分组选择器
+                     div,span,h2{
+                        color:orange;
+                     }
+               --通用选择器
+                    *{
+                        color:gray;
+                    }
+               选择器的优先级：
+                    行内样式 > id选择器 > 类选择器 > 标签选择器 > 通用选择器
+
+        2.3 外部样式
+                <link rel="stylesheet" href="a.css">
+                
+    3.css的基本属性
+           --文字段落 
+            边框设置：border
+                宽度，样式，颜色  (border: 1px solid red;)
+
+            文本行高：line-height 
+                语法： line-height：行高值(像素)
+
+            水平对齐： text-align
+                left：左对齐；
+                right：右对齐
+                center：居中对齐
+            
+           背景属性 
+                背景颜色：background-color
+                    关键字：red pink orange 
+
+                背景图像：background-image
+                    使用background-image属性可以设置元素的背景图像。
+                    语法：background-image：url（图像地址）
+
+                背景重复：background-repeat
+                    语法：background-repeat：取值
+                    Repeat(默认)       背景图像平铺排满整个网页
+                    repeat-x           背景图像只在水平方向上平铺； 
+                    repeat-y           背景图像只在垂直方向上平铺。
+                    no-repeat          背景图像不平铺
+
+                背景位置：background-position
+                    background-position-x:200px ;
+                    background-position-y:100px;
+           
+    4.布局属性
+        
+    5.浏览器兼容性的问题 
+    
+    
+   
+        
+     
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            

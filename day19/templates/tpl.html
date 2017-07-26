@@ -1,0 +1,25 @@
+{% load cq %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {{ data }}
+    <br/>
+    {#  这里记住不要有空格#}
+{#    site前面的data 会当作第一个参数传递给cq中的site函数,#}
+    {# site:8   8会当作第二个参数 传递给函数 #}
+    {# filter最多只能加2个参数 #}
+    {{data|site:8}}
+    <br/>
+    {{ data|site:'8,10086' }}
+    <br/>
+    <br/>
+    {{ '下一页'|site_two:8 }}
+    <br/>
+    <br/>
+    {% site_three 1 2 3 %}
+</body>
+</html>

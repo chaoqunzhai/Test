@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form id="f1" action="http://www.baidu.com" method="GET">
+        <p><input type="text" name="username" require="true" /></p>
+        <p><input type="password" name="password" require="true" min-len="6" max-len="18" /></p>
+        <p><input type="text" name="phone" require="true" phone="true"  /></p>
+        <input type="submit" value="提交" />
+    </form>
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            checkValidate();
+        });
+        function checkValidate() {
+
+            $('#f1').find(':submit').click(function () {
+                $('#f1').find('span').remove();
+                var flag = true;
+                $('#f1').find(':text,:password').each(function () {
+                    // $(this)代指每一个input标签
+                    // 每一次执行都是一个标签
+                    // 如果有某个标签的某一项不满足，调到下一个标签
+                    var value = $(this).val();
+
+                    var require = $(this).attr('require');
+                    if(require){
+                        if(value.length == 0){
+                            var n = $(this).attr('name');
+                            var errorTag = document.createElement('span');
+                            errorTag.innerHTML = n + '输入不能为空';
+                            $(this).after(errorTag);
+
+                            flag = false;
+                            // return true; // 相当于py的continue
+                            return false; // 相当于py的break;
+
+                        }
+                    }
+
+                    var minLen = $(this).attr('min-len');
+                    if(minLen){
+                        var valueLen = value.length;
+                        var minLen = parseInt(minLen);
+                        if(valueLen < minLen){
+                            var n = $(this).attr('name');
+                            var errorTag = document.createElement('span');
+                            errorTag.innerHTML = n + '太短了';
+                            $(this).after(errorTag);
+
+                            flag = false;
+                            // return true; // continue
+                            return false; // break;
+                        }
+                    }
+
+                    var phone = $(this).attr('phone');
+                    if(phone){
+                        // value: asdfasdf
+                        var re = /^\d+$/;
+                        if(!re.test(value)){
+                            var n = $(this).attr('name');
+                            var errorTag = document.createElement('span');
+                            errorTag.innerHTML = n + '格式错误';
+                            $(this).after(errorTag);
+
+                            flag = false;
+                            // return true; // continue
+                            return false; // break;
+                        }
+                    }
+
+                });
+                return flag;
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{% block left-panel-content %}
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.author }}</p>
+    <div class="row">
+        <div class="col-md-4">
+            {{ article.pub_date }}
+        </div>
+        <div class="col-md-2">
+            评论{{ article.comment_set.count }}
+        </div>
+    </div>
+
+    <div style="margin-top: 20px;border: 1px dashed red;padding: 10px ">
+        {{ article.body|safe}}
+    </div>
+{% endblock %}

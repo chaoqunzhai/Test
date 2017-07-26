@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+
+{% block extra-head-resources %}
+
+     <script src="/static/plugins/ckeditor/ckeditor.js"></script>
+{% endblock %}
+
+{% block container %}
+
+<div style="min-height: 600px;padding-bottom: 50px">
+
+    <form method="post" enctype="multipart/form-data">
+
+        {% for field in form %}
+            <div class="form-group">
+                <label  class="col-sm-2 control-label">{{ field.name }}</label>
+                <div class="col-sm-10">
+                  {{ field }}
+                  <span style="color: red">{{ field.errors }}</span>
+                </div>
+            </div>
+
+        {% endfor %}
+        <input type="submit" class="col-lg-offset-5 btn btn-sm btn-success" value="提交">
+    </form>
+</div>
+
+
+<script>
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace( 'id_body' );
+</script>
+
+
+{% endblock %}

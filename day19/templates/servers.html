@@ -1,0 +1,16 @@
+{% extends 'leiout.html' %}
+
+{% block bd %}
+    <h1>服务器列表</h1>
+    <ul>
+        {% for row in data %}
+            <li>{{ row.uid }}-{{ row.hostname }}
+                -{{ row.passwd }}-{{ row.port }}-
+                <a href="/del_user?uid={{ row.uid }}">删除</a>
+                <a href="/update_user.html?uid={{ row.uid }}">编辑</a>
+                <a href="/update_user_new-{{ row.uid }}.html">新编辑</a>
+            </li>
+        {% endfor %}
+    </ul>
+        {% include 'pager.html' %}
+{% endblock %}

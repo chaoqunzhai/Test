@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .hander {
+            height: 48px;
+            background-color: green;
+            color: white;
+        }
+        .pg-body .menus{
+            margin: 0 auto;
+            background-color: blue;
+            height: 500px;
+            width: 20%;
+            float: left;
+        }
+        .pg-body .conect{
+            margin: 0 auto;
+            width: 80%;
+            float: left;
+            height: 500px;
+        }
+        {% block css %}{% endblock %}
+    </style>
+</head>
+<body>
+<div class="hander"></div>
+<div class="pg-body">
+    <div class="menus"></div>
+    <div class="conect">
+        <a href="/add_user">添加用户</a>
+        {% block bd %}{% endblock %}
+    </div>
+</div>
+</body>
+{% block js %}{% endblock %}
+</html>

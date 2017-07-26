@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/bin/hailong.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config/settings.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lib/logger_helper.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/plugins/__init__.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/plugins/base.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/plugins/disk.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/plugins/mem.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/plugins/nic.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/script.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test.py.bak" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/其他/test.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/其他/单例模式.py" charset="UTF-8" />
+  </component>
+</project>

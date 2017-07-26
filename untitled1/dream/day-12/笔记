@@ -1,0 +1,202 @@
+
+SHOW DATABASES;
+use database name
+show tables
+desc tablename 查看表结构
+select host,user,authentication_string from user;
+select * from user \G; 格式化输出
+show grants for alex@'%';
+grant all privileges on *.* to 'jack'@'%' 给已经存在的用户授权
+grant all privileges on *.* to 'jack'@'%' identified by '123' ; 创建用户
+> create database s15test charset utf8;
+ drop database s15test;
+
+ENGINE=InnoDB  主流， 事务 。。。
+MYISAM，
+
+ show create table student; 查看建表语句
+create table student(
+   stu_id INT NOT NULL AUTO_INCREMENT,
+   name CHAR(32) NOT NULL,
+   age  INT NOT NULL,
+   register_date DATE,
+   PRIMARY KEY ( stu_id )
+);
+insert into student (name,age,register_date) values("李闯",22,"2016-08-22");
+
+
+select * from student where name like "李%";
+select * from student where age <50 and  age>20 and register_date > "2016-07-01";
+
+select * from student limit 3 offset 3;
+  update student set name="海涛3P",age=33  where stu_id>4 and stu_id<7;
+delete from student where name like "海涛3%" ;
+
+select * from student where binary name="JACK"; 区分大小写
+ select * from student order by register_date,age
+
+select AVG(age) from student ; 求所有行的平均值
+
+
+mysql> select register_date,COUNT(register_date) from student group by register_date;
++---------------+----------------------+
+| register_date | COUNT(register_date) |
++---------------+----------------------+
+| 2008-03-22    |                    4 |
+| 2016-06-22    |                    1 |
+| 2016-08-22    |                    1 |
++---------------+----------------------+
+
+select coalesce(register_date,"total"), COUNT(register_date) from student group by register_date with rollup ;
+
+
+ alter table student add score int not null;
+  alter table student drop score
+
+
+   alter table student modify name char(16); ; 改字段的数据类型
+    alter table student change stu_id id int(8); 改字段的名字及数据类型
+
+
+
+mysql> create table class(
+    -> id  int not null primary key,
+    -> name char(16));
+Query OK, 0 rows affected (0.02 sec)
+
+
+CREATE TABLE `student2` (
+  `id` int(11) NOT NULL,
+  `name` char(16) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_class_key` (`class_id`),
+  CONSTRAINT `fk_class_key` FOREIGN KEY (`class_id`) REFERENCES `class` (`id`)
+)
+mysql> select * from A;
++---+
+| a |
++---+
+| 1 |
+| 2 |
+| 3 |
+| 4 |
++---+
+4 rows in set (0.00 sec)
+
+mysql> select * from B;
++---+
+| b |
++---+
+| 3 |
+| 4 |
+| 5 |
+| 6 |
++---+
+4 rows in set (0.00 sec)
+
+mysql> select * from A inner join B on A.a = B.b;
++---+---+
+| a | b |
++---+---+
+| 3 | 3 |
+| 4 | 4 |
++---+---+
+2 rows in set (0.00 sec)
+
+mysql> select * from A right join B on A.a = B.b;
++------+---+
+| a    | b |
++------+---+
+|    3 | 3 |
+|    4 | 4 |
+| NULL | 5 |
+| NULL | 6 |
++------+---+
+4 rows in set (0.00 sec)
+
+
+mysql> select * from A left join B on A.a = B.b;
++---+------+
+| a | b    |
++---+------+
+| 3 |    3 |
+| 4 |    4 |
+| 1 | NULL |
+| 2 | NULL |
++---+------+
+4 rows in set (0.00 sec)
+
+
+mysql> select * from A left join B on A.a = B.b UNION select * from A right join B on A.a = B.b;
++------+------+
+| a    | b    |
++------+------+
+|    3 |    3 |
+|    4 |    4 |
+|    1 | NULL |
+|    2 | NULL |
+| NULL |    5 |
+| NULL |    6 |
++------+------+啊
+6 rows in set (0.00 sec)
+
+mysql> select student2.id ,student2.name as stu_name ,class.name as class_name from student2 right join class on student2.class_id = class.id;
++------+----------+------------+
+| id   | stu_name | class_name |
++------+----------+------------+
+|    2 | Jack     | pys15      |
+|    3 | Rain     | pys15      |
+|    4 | 海涛     | pys15      |
+|    5 | 李闯     | linux31    |
+| NULL | NULL     | Go开发     |
++------+----------+------------+
+
+
+mysql> select * from class where name = NULL;
+Empty set (0.00 sec)
+
+mysql> select * from class where name is NULL;
++----+------+
+| id | name |
++----+------+
+|  4 | NULL |
++----+------+
+
+
+mysql> show index from student2;
+
+DROP INDEX [indexName] ON mytable;
+CREATE INDEX indexName ON mytable(username(length));
+CREATE unique INDEX indexName ON mytable(username(length));
+
+unique
+
+本节作业需求
+
+run_task -h h1,h2,h3 -g g1,g2  -cmd df -h
+你可以ctrl-c结束程序，返回一个task_id
+
+你可以通过命令check_task_prgroess task_id
+
+主机，组的关系存在数据库里
+redis 是单线程的  用的IO多路复用
+
+
+作业:http://www.cnblogs.com/wupeiqi/articles/5729934.html
+
+select 监听文件描述符，也就是socket对象 的时候，整个程序都会被select阻塞掉
+redis是原子性的
+
+
+简单异步任务分发工具
+run_tak -h h1,h2,h3 -g g1,g2 -cmd df -h
+
+会立刻等结果，你可以ctrl-C结束， 任务还在对端执行,断开的时候返回一个task_id
+你可以通过命令 check_task_progroess  taik_id  还能继续收结果
+
+
+主机,组的关系存在数据库里 --->执行上面的命令都会去数据库里面取
+
+
+2016年到底干了啥？ 明年我要成就啥！

@@ -1,0 +1,50 @@
+SOA体系
+	---松耦合
+
+	1.预先设置好host名称
+		192.168.56.11 linux-node1 linux-node1.com
+		192.168.56.12 linux-node2 linux-node2.com
+	2.时间同步  
+		
+	yum -y install chrony
+
+		vi /etc/chrony.conf
+			allow 192.168/16
+
+		[root@linux-node1 ~]# systemctl enable chronyd.service
+		[root@linux-node1 ~]# systemctl start chronyd.service
+		[root@linux-node1 ~]# timedatectl set-timezone Asia/Shanghai
+
+
+	3.mysql，centos里就不叫mysql了。。是mariadb   #数据库可以装在任意一台机器上，只要openstack能连上就行
+		yum -y install mariadb mariadb-server Mysql-python
+		cp /usr/share/mysql/my-medium.cnf /etc/my.cnf
+		
+		vim /ect/my.cnf
+			[mysqld]
+			default-storage-engine = innodb
+			innodb_file_per_table          #独享表空间
+			collation-server = utf8_general_ci   #校对规则
+			init-connect = 'SET NAMES utf8'    #设置连接的时候字符集
+			character-set-server = utf8		#设置创建数据默认字符集
+			
+			systemctl enable mariadb.service
+			systemctl start mariadb.service
+		
+		设置mysql密码
+			mysql_secure_installation        
+					回车！设置密码
+			
+			mysql -uroot -p 进去数据库
+			
+				创建数据库，需要创建glance，keystone，eutron，nova，cinder 这几个数据库，操作都如下
+					create database keystone;
+					grant all privileges on keystone.* to 'keystone'@'localhost' identified by 'keystone';
+					grant all privileges on keystone.* to 'keystone'@'%' identified by 'keystone';
+					
+	4.安装消息队列rabbitmq---监听到5672端口
+		yum -y install rabbitmq-server
+		[root@linux-node1 ~]# systemctl enable rabbitmq-server.service
+		[root@linux-node1 ~]# systemctl start rabbitmq-server.service
+		
+	2oepnstack基础环境--40分钟	

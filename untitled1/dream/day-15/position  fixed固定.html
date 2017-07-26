@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #pg-header{
+            background-color: #2459a2;
+            height: 38px;
+            position: fixed;
+        }
+        #content{
+            height: 3000px;
+            background-color: #1ee9c3;
+            margin-top: 40px;
+        }
+        #top{
+            width: 200px;
+            height:50px;
+            border: 1px solid red;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="pg-header">
+        <a href="#">我的淘宝</a>
+        <a href="#">我的支付宝</a>
+    </div>
+    <div id="content">
+        111111111111
+    </div>
+    <div id="top" onclick="goTop()">
+        返回顶部
+    </div>
+    <script>
+        function  goTop() {
+            document.body.scrollTop = 0;
+        }
+    </script>
+
+</body>
+</html>

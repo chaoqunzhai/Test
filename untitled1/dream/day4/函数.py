@@ -1,0 +1,15 @@
+def say(name,age,contry='CN',*args,**kwargs):
+    print('姓名',name)
+    print('年龄',age)
+    print('国家',contry)
+    print('自定义添加a',args)
+    print('自定义添加k',kwargs)
+
+usename = input('username>>').strip()
+say(usename,'23','CN','爱吃羊蝎子',时间='20161030')
+print('\033[32m---------------------\033[0m')
+say('cq',23,'CN','IT',uuid='gong zuo 3 old yesar',moeny='100000')
+print('\033[34m---------------------\033[0m')
+say(name='zcq',age='24',uuid='stuid10001',chengji='A+')
+print('\033[35m---------------------\033[0m')
+say(age=22,name='cq',contry='python')

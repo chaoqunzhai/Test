@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <input id='a1'type="text"/>
+    <input id='butt'type="button" value="添加">
+    <ul>
+        <li></li>
+    </ul>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $('#butt').click(function () {
+            var v = $('#a1').val();
+            var li = document.createElement('li');
+            li.innerHTML = v;
+            $('ul').append(li);
+        });
+        /*
+        val 是针对input类型的。
+        text是针对<div>内容1</div>   这里面的内容1的
+        click是jQuery里面的绑定事件
+        oncllick是dom里面的绑定事件
+         */
+        $('ul').on('click','li',function () {
+            var v =$(this).text();
+            console.log('v',v);
+            v += '+1';
+            $(this).text(v);
+        })
+
+    </script>
+</body>
+</html>

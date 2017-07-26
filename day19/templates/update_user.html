@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="POST">
+        <p style="display: none"><input type="text" name="uuid" value="{{ data.uid }}"/></p>
+        <p><input type="text" name="user" value="{{ data.hostname }}"/></p>
+        <p><input type="text" name="pwd" value="{{ data.passwd }}"/></p>
+        <p><input type="text" name="port" value="{{ data.port }}" /></p>
+        <input type="submit" value="提交" />
+    </form>
+</body>
+</html>

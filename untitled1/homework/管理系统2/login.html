@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="table.html" rel="stylesheet">
+    <style>
+        *{
+            margin: 0 auto;
+
+        }
+        body{
+            background-color: #dddddd;
+        }
+        .left{
+            float: left;
+        }
+        .right{
+            float: right;
+        }
+        .pg-hander{
+            background-color: #dddddd;
+            height: 100px;
+        }
+        .pg-hander .logo{
+            color: black;
+            font-size: 30px;
+            text-align: center;
+            width: 100px;
+            line-height: 70px;
+        }
+        .pg-hander .userinfo{
+            /*border: 1px solid red;*/
+            line-height: 60px;
+            margin-right: 30px;
+            width: 100px;
+            margin-top: 5px;
+
+        }
+        .pg-hander .userinfo .pg-list{
+            display: none;
+        }
+        .pg-hander .pg-hander-list .userinfo:hover .pg-list{
+            display: block;
+        }
+        .pg-hander .pg-hander-list .userinfo .pg-list{
+            position: absolute;
+            top:60px;
+            right: 50px;
+            z-index: 10;
+        }
+        .pg-hander .pg-hander-list .userinfo .pg-list a{
+            display: block;
+            color: #4c4c4c;
+        }
+        /*.caro{*/
+            /*background-color: #66CCFF;*/
+            /*font-size: 25px;*/
+            /*z-index: 10;*/
+            /*position: absolute;*/
+            /*left: 0;*/
+            /*bottom: 0;*/
+            /*width: 1536px;*/
+        /*}*/
+        .pg-hander .pg-hander-list-1 .pg-hander-list-1-1{
+            /*border: 1px solid red;*/
+            display: none;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            /*top:30px;*/
+            margin-left: 10px;
+            z-index: 12;
+        }
+
+        .pg-hander .pg-hander-list-1:hover .pg-hander-list-1-1{
+            display: block;
+        }
+        .pg-hander .pg-hander-list-1 .pg-hander-list-1-1 a{
+            display: block;
+        }
+        .pg-hander .pg-hander-list-1 .pg-hander-list-1-1 a .type1{
+            position: absolute;
+            top: 25px;;
+        }
+        .pg-hander .pg-hander-list-1 .pg-hander-list-1-1 a .type2{
+            position: absolute;
+            top: 80px;;
+        }
+        .pg-hander .pg-hander-list .userinfo img{
+            border-radius: 50%;
+        }
+        .pg-hander .pg-hander-list-1{
+            /*border: 1px solid red;*/
+            margin: 0 auto;
+            position: absolute;
+            top:20px;
+            font-size: 22px;
+            right: 500px;
+        }
+        .pg-hander .pg-hander-list-2{
+            /*border: 1px solid red;*/
+            margin: 0 auto;
+            position: absolute;
+            top:20px;
+            font-size: 22px;
+            right: 350px;
+        }
+        .pg-hander .pg-hander-list-3{
+            /*border: 1px solid red;*/
+            margin: 0 auto;
+            position: absolute;
+            top:20px;
+            font-size: 22px;
+            right: 200px;
+        }
+        .menu .item{
+            display: block;
+        }
+        .menu .item .conn{
+            background-color: white;
+        }
+        .menu .item .conn a{
+            display: block;
+            padding: 15px;
+            margin: 0 auto;
+            background-color: #336666;
+        }
+        .menu .item .title{
+            background-color: #297EA8;
+            color: white;
+            top: 0;
+            height: 130px;
+            margin-right: 0;
+        }
+
+        .pg-body .pg-connect{
+            width: 92%;
+            height:85.6%;
+            position: absolute;
+            top:111px;
+            overflow: auto;
+            right: 0;
+            bottom: 0;
+            background-color: #336666;
+            z-index: 5;
+        }
+
+        .pg-body .pg-menu .pg-menu-1 div{
+
+            font-size: 25px;
+            color: red;
+            width: 100px;
+            height: 30px;
+            position: relative;
+            margin-top: -10px;
+            text-align: center;
+            top:10px;
+            left: 24px;
+            float: left;
+        }
+        .one{
+            position: absolute;
+            margin-left: 9%;
+            top: 100px;;
+            width: 91%;
+            height: 500px;;
+            background-color: white;
+            opacity: 0.96;
+            z-index: 20;
+        }
+        .info{
+            position: absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            background-color: white;
+            opacity: 0.7;
+            z-index: 30;
+        }
+        .eddit{
+            position: absolute;
+            top:112px;
+            left: 104px;;
+            right:0;
+            bottom:0;
+            width: 1400px;
+            height: 500px;
+            background-color: white;
+            opacity: 0.92;
+            z-index: 35;
+        }
+        .hide{
+            display: none;
+        }
+        .one {
+            border: 1px solid #e2e2e2;
+        }
+        table,td,th{
+            border: 1px solid black;
+        }
+        td{
+            padding: 15px;
+            margin: 0 auto;
+        }
+        th{
+            font-size: 30px;
+            background-color: #c0d608;
+        }
+        .form_list{
+            /*border: 1px solid red;*/
+            position: absolute;
+            left: 45%;
+            top:60%;
+            width: 200px;
+            height: 100px;
+        }
+        .form_list_1{
+            /*border: 1px solid red;*/
+            margin-top: 50px;
+            margin-left: 45px;
+            margin-bottom: 30px;
+        }
+        .pg-core{
+            position: absolute;
+            top:20%;
+            left: 40%;
+            bottom: 50%;
+        }
+        .pg-core p{
+            color: white;
+        }
+        .pg-menu .conn{
+            background-color: white;
+        }
+        .pg-menu .conn a{
+            display: block;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="pg-hander">
+        <div class="logo left">
+            <span>DreamAdmin</span>
+        </div>
+        <div class="pg-hander-list-1">
+            <a href="#" style="text-decoration: none;"><font color="#666666">我的主机</font></a>
+            <div class="pg-hander-list-1-1" >
+                <a href="#" style="text-decoration: none; font-size: 25px;color: #b2002e"><div class="type1"  onclick="showModel()">线上</div></a>
+                <a href="#" style="text-decoration: none; font-size: 25px;color: aqua"><div class="type2" onclick="addModel()">添加</div></a>
+            </div>
+        </div>
+        <div class="pg-hander-list-2">
+            <a href="#" style="text-decoration: none;"><font color="#666666" onclick="showModels()">浏览业务</font></a>
+        </div>
+        <div class="pg-hander-list-3">
+            <a href="#" style="text-decoration: none;"><font color="#666666">清除缓存</font></a>
+        </div>
+        <div class="pg-hander-list right">
+
+            <div class="userinfo right" style="position: relative">
+            <a href="#" ><img src="01.jpg" alt="" width="60" height="60"></a>
+                <a href="#"><img src="02.png " style="height: 35px"></a>
+            <div class="pg-list">
+                <a href="#" style="text-decoration: none;font-size: 20px;color: white" onclick="loginModele()">登录</a>
+                <a href="#"style="text-decoration: none;font-size: 20px;color: white">注销</a>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="pg-body">
+        <div class="menu">
+            <div class="item">
+                <div  class="title" onclick="changeMenu(this); ">Zabbix</div>
+                <div class="conn hide">
+                    <a>11111111</a>
+                    <a>11111111</a>
+                    <a>11111111</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="title" onclick="changeMenu(this);">Ansible</div>
+                <div class="conn hide">
+                    <a>11111111</a>
+                    <a>11111111</a>
+                    <a>11111111</a>
+
+                </div>
+            </div>
+            <div class="item">
+                <div class="title" onclick="changeMenu(this);">Docker</div>
+                <div class="conn hide">
+                    <a>11111111</a>
+                    <a>11111111</a>
+                    <a>11111111</a>
+                    <a>11111111</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="title" onclick="changeMenu(this);">Elk</div>
+                <div class="conn hide">
+                    <a>11111111</a>
+                    <a>11111111</a>
+                    <a>11111111</a>
+
+                </div>
+            </div>
+            <div class="item">
+                <div class="title" onclick="changeMenu(this);">OpenStack</div>
+                <div class="conn hide">
+                    <a>11111111</a>
+                    <a>11111111</a>
+                    <a>11111111</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="pg-connect">
+            <div class="pg-core">
+            <h1 style="color: white">Welcome to Admin!</h1>
+                <!--<p>a.点击登录，可弹出登录页面，选择游客模式，即无需登录</p>-->
+                <!--<p>b.点击我的主机，可弹出表单，点击返回即退出</p>-->
+                <!--<p>c.左侧栏目都可点击</p>-->
+            </div>
+            <div class="zabbix hide">
+                <div class="zabbix_in">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--<div class="caro">-->
+      <!--<marquee behavior="red" direction="left">请登录！！</marquee>-->
+    <!--</div>-->
+    <div class="one hide">
+        <div clas="filed-box">
+            <form>
+            <table width="1370" border="1" cellspacing="0" cellpadding="0" >
+                <tr>
+                    <th>体系</th>
+                    <th>系统</th>
+                    <th>程序</th>
+                    <th>状态</th>
+                    <th>缓存连接</th>
+                    <th>备注</th>
+                </tr>
+                <tr>
+                    <td>阿里云</td>
+                    <td>Linux</td>
+                    <td>Mysql</td>
+                    <td>
+                        <select>
+                            <option>运行</option>
+                            <option>挂起</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="test" name="username" placeholder="测试环境"/>
+                    </td>
+                    <td>
+                        <span>
+                        Cache<input type="checkbox" name="hob" value="2"/>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>亚马逊</td>
+                    <td>Linux</td>
+                    <td>Nginx</td>
+                    <td>
+                        <select>
+                            <option>运行</option>
+                            <option>挂起</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="test" name="username" placeholder="测试环境"/>
+                    </td>
+                    <td>
+                        <span>
+                        Memcached<input type="checkbox" name="hob" value="2"/>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>私有云</td>
+                    <td>Windows</td>
+                    <td>Hadoop</td>
+                    <td>
+                        <select>
+                            <option>运行</option>
+                            <option>挂起</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="test" name="username" placeholder="测试环境"/>
+                    </td>
+                    <td>
+                        <span>
+                        Redis<input type="checkbox" name="hob" value="2"/>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+                <div class="form_list">
+                    <fieldset style="background-color: #1ee9c3">
+                        <legend>@2017</legend>
+                            <div class="form_list_1">
+                                <input id='form_1'type="submit" value="提交">
+                                <input id='form_2'type="reset" value="重置">
+                            </div>
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+        <a href="#" style="text-decoration: none;color: red;position: absolute;top: 460px;background-color: yellow;font-size: 30px" onclick="exitModel()">返回</a>
+    </div>
+    <div class="info hide">
+            <div style="width: 323px;margin:100px auto;border: 4px solid darkturquoise;margin-top: 250px">
+            <h2 style="text-align: center;color: #1ee9c3">用户注册</h2>
+        <p>
+            <label for="user" style="width: 100px;display: inline-block;text-align: right">账   户:</label>
+            <input id="user" type="text" placeholder="翟超群"/>
+        </p>
+        <p>
+            <label for="passwd"  style="width: 100px;display: inline-block;text-align: right">密   码:</label>
+            <input id="passwd" type="password" value="123456"/>
+        </p>
+            <p style="text-align: center">
+                <label style="width: 100px;display: inline-block;text-align: right">
+                        <input type="submit" value="登录" style="background-color: #08d6a0;width: 100px"/></label>
+                            <label style="width: 100px;display: inline-block;text-align: right">
+                        <input type="reset" value="重置" style="background-color: #c0d608;width: 100px"/></label>
+            </p>
+            <p style="text-align: center">
+                <a href="#"style="text-decoration: none;font-size: 16px;color: red " onclick="exit()">*游客模块</a>
+                <span>|</span>
+                <a href="http://www.cnblogs.com/zcqdream" target="_blank" style="font-size: 16px;text-decoration: none;color: red">*访问博客</a>
+            </p>
+            </div>
+    </div>
+    <div class="eddit hide">
+        <div style="position: relative;text-align: center">
+        <input id="t1" type="text" value="如要删除请输入index值" onfocus="fubF(this);" onblur="fubB(this);"/>
+        <input id="a1" type="button" value="添加" />
+        <input id="a2" type="button" value="删除" />
+            <input class="a3" type="button" value="返回" onclick="exitbu()"/>
+
+                <ul id="u1">
+                </ul>
+        </div>
+    </div>
+    <div onclick="goTop();" style="height: 50px;width: 50px;position: fixed;right: 10px;bottom: 10px;background-color: red;z-index: 100">回到顶部</div>
+
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    function showModels() {
+        var myone = document.getElementsByClassName("meuns")[0];
+        myone.classList.remove('hide');
+
+        $('.showModels a').click(function(){
+                // this代指当前触发事件的标签,DOM对象
+                $(this).addClass('active').siblings().removeClass('active');
+                var v = $(this).attr('target'); // i1,i2 i3
+                var t = 'div[nid="' + v + '"]'; // div[nid="i1"]
+                $('.contents').find(t).removeClass('hide').siblings().addClass('hide');
+
+    })
+    }
+    function showModel() {
+        var myone = document.getElementsByClassName("one")[0];
+
+        myone.classList.remove('hide');
+
+    }
+    function addModel() {
+
+        var myone = document.getElementsByClassName("eddit")[0];
+        myone.classList.remove('hide');
+        $('#a1').click(function () {
+            var v = $('#t1').val();
+            if(v =='如要删除请输入index值'){
+                return flase;
+            }else
+                var temp = "<h4>" + v + "</h4>";
+                $('#u1').append(temp);
+        });
+        $('ul').delegate('li','click',function () {
+            var v = $(this).text();
+            alert('good!!');
+        });
+        $('#a2').click(function () {
+            var index = $('#t1').val();
+            $('#u1 h4').eq(index).remove();
+        })
+    }
+    function fubF(ths) {
+        var v = ths.value;
+        if(v == '如要删除请输入index值'){
+            ths.value = "";
+        }
+    }
+    function fubB(ths) {
+        var v = ths.value;
+        if(v.length == 0){
+            ths.value = '如要删除请输入index值'
+        }
+    }
+    function exitbu() {
+        var myone = document.getElementsByClassName('eddit')[0];
+        myone.classList.add('hide');
+    }
+    function  exitModel() {
+        var myone = document.getElementsByClassName("one")[0];
+
+        myone.classList.add('hide');
+    }
+    function  loginModele() {
+        var myone = document.getElementsByClassName("info")[0];
+        myone.classList.remove('hide');
+    }
+    function  exit() {
+        var myone = document.getElementsByClassName("info")[0];
+        myone.classList.add('hide');
+    }
+    function changeMenu(ths){
+        $(ths).next().removeClass('hide');
+        $(ths).parent().siblings().find('.conn').addClass('hide')
+    }
+    function goTop() {
+        $(window).scrollTop(0);
+
+    }
+</script>
+</html>
